@@ -1,15 +1,21 @@
-const express = require('express')
-const dotenv = require('dotenv')
-const dbConnect = require('./dbConnect')
+import express from 'express';
+import connection from './Database/db.js';
+import dotenv from 'dotenv';
+import routes from './Routes/route.js';
+import cors from 'cors';
 
-dotenv.config('./.env')
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 4000;
 
+
+app.use(cors());
+app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
+app.use('/', routes);
 
-dbConnect()
-app.listen(PORT, ()=>{
-    console.log(`Listening on port: ${PORT}`);
-})
+const PORT = 8000;
+
+connection();
+
+app.listen(PORT, ()=>console.log(`Server is started on PORT ${PORT}`));
