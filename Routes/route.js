@@ -8,4 +8,4 @@ routes.get('/emails/:type', getEmails);
 routes.post('/save-draft', saveDraftEmail);
 routes.post('/bin', moveEmailsToBin);
 
-export default routes;
+export default routes;   
