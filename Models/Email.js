@@ -39,4 +39,4 @@ const EmailSchema = new mongoose.Schema({
 });
 
 const Email = mongoose.model('emails', EmailSchema);
-export default Email;     
+export default Email;
